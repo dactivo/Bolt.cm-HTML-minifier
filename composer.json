@@ -5,7 +5,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/dactivo/htmlminifier"
+            "url": "https://github.com/dactivo/Bolt.cm-HTML-minifier"
         }
     ],
     "require": {
