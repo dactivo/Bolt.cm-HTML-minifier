@@ -7,7 +7,7 @@ A simple extension to minify the HTML output.
 
 We simply pass the following function to the output rendered:
 
-
+```
 function sanitize_output($buffer) {
 
 $search = array(
@@ -28,3 +28,4 @@ $buffer = preg_replace($search, $replace, $buffer);
 
 return $buffer;
 }
+```
