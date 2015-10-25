@@ -1,0 +1,29 @@
+{
+    "name": "dactivo/htmlminifier",
+    "description": "Compress your HTML for bolt CMS.",
+    "type": "bolt-extension",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/dactivo/htmlminifier"
+        }
+    ],
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Diseño Activo",
+            "email": "d-a@d-a.es"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\DisenoActivo\\HtmlMinifier\\": ""
+        }
+    }
+}
