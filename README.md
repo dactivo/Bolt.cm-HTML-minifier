@@ -30,7 +30,7 @@ return $buffer;
 }
 ```
 
-I have detected that the methods in the Bolt file "Bolt/Src/Extensions.php", that will be deprecated: insertEndOfHead and the like, does not work well with this extension, because of the regex pattern:
+I have detected that the methods in the Bolt file "Bolt/Src/Extensions.php", that will be deprecated: insertEndOfHead and the like, do not work well with this extension, because of the regex pattern:
 ```
 if (preg_match("~^([ \t]*)</head~mi", $html, $matches)) {
 
