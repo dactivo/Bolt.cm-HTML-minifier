@@ -17,22 +17,22 @@ class Extension extends BaseExtension
 
 
         //not debugging, so that we don't be slower when developping
-        if(!$this->app['config']->get('general/debug'))
+        //exclude backend
+        if(!$this->app['config']->get('general/debug') && $this->app['config']->getWhichEnd()!='backend' || 1==1)
         {
 
 
             //after rendering, we sanitize the HTML
-        $this->app->after(function (Request $request, Response $response) {
+            $this->app->after(function (Request $request, Response $response) {
 
-            $uri = $request->getRequestUri();
 
-            //exclude backend
-            if ($this->app['config']->getWhichEnd()!='backend')
-            {
-                $content = $response->getContent();
-                $content=$this->sanitize_output($content);
-                $response->setContent($content);
-             }
+                if($this->getExtension($request->getPathInfo())!=".css" && $this->getExtension($request->getPathInfo())!=".js")
+                {
+                    $uri = $request->getRequestUri();
+                    $content = $response->getContent();
+                    $content=$this->sanitize_output($content);
+                    $response->setContent($content);
+                }
         });
         }
 
@@ -43,6 +43,10 @@ class Extension extends BaseExtension
         return "htmlminifier";
     }
 
+    private function getExtension($file)
+    {
+        return strtolower(strrchr($file,"."));
+    }
 
 
 
