@@ -16,14 +16,17 @@ class Extension extends BaseExtension
     public function initialize() {
 
 
+        //not debugging, so that we don't be slower when developping
         if(!$this->app['config']->get('general/debug'))
         {
 
-        //Add a Silex middleware to inject contact form into content
+
+            //after rendering, we sanitize the HTML
         $this->app->after(function (Request $request, Response $response) {
 
             $uri = $request->getRequestUri();
-            //Don't be active on routes that have "editcontent" in them.  We don't want to affect the bolt backend.
+
+            //exclude backend
             if ($this->app['config']->getWhichEnd()!='backend')
             {
                 $content = $response->getContent();
