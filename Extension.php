@@ -18,7 +18,7 @@ class Extension extends BaseExtension
 
         //not debugging, so that we don't be slower when developping
         //exclude backend
-        if(!$this->app['config']->get('general/debug') && $this->app['config']->getWhichEnd()!='backend' || 1==1)
+        if(!$this->app['config']->get('general/debug') && $this->app['config']->getWhichEnd()!='backend')
         {
 
 
