@@ -43,4 +43,5 @@ Replace it removing the "^" of all these functions and it will work, result:
 if (preg_match("~([ \t]*)
 ```
 
-
+This solution has been accepted by the Bolt team as a fix, so it will be like that in the future of Bolt:
+https://github.com/bolt/bolt/pull/4367
