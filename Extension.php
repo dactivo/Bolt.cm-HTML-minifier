@@ -25,7 +25,8 @@ class Extension extends BaseExtension
             //after rendering, we sanitize the HTML
             $this->app->after(function (Request $request, Response $response) {
 
-
+                //we have to make sure is only the output of the HTML that is minified, Silex/Bolt also handle all the other files
+                //you should add more file extensions if it gives you problem with the output
                 if($this->getExtension($request->getPathInfo())!=".css" && $this->getExtension($request->getPathInfo())!=".js")
                 {
                     $uri = $request->getRequestUri();
